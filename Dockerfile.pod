@@ -1,0 +1,11 @@
+FROM ghcr.io/huggingface/text-generation-inference:1.0.3
+
+WORKDIR /app
+
+RUN pip install text-generation
+
+COPY entrypoints/keep_alive.sh keep_alive.sh
+RUN chmod +x keep_alive.sh
+
+ENTRYPOINT ["/app/keep_alive.sh"]
+

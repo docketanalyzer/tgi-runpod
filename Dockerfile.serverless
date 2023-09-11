@@ -1,0 +1,13 @@
+FROM ghcr.io/huggingface/text-generation-inference:1.0.3
+
+WORKDIR /app
+
+RUN pip install runpod text-generation pathlib
+
+COPY src/handler.py handler.py
+COPY entrypoints/start.sh start.sh
+RUN chmod +x start.sh
+
+ENTRYPOINT ["/app/start.sh"]
+
+
