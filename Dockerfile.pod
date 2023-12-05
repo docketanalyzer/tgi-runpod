@@ -1,4 +1,4 @@
-FROM ghcr.io/huggingface/text-generation-inference:1.0.3
+FROM ghcr.io/huggingface/text-generation-inference:latest
 
 WORKDIR /app
 
@@ -9,3 +9,4 @@ RUN chmod +x keep_alive.sh
 
 ENTRYPOINT ["/app/keep_alive.sh"]
 
+# DOCKER_BUILDKIT=1 docker build -f Dockerfile.pod -t nadahlberg/tgi-runpod:latest --push .

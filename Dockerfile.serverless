@@ -1,4 +1,4 @@
-FROM ghcr.io/huggingface/text-generation-inference:1.0.3
+FROM ghcr.io/huggingface/text-generation-inference:latest
 
 WORKDIR /app
 
@@ -9,5 +9,7 @@ COPY entrypoints/start.sh start.sh
 RUN chmod +x start.sh
 
 ENTRYPOINT ["/app/start.sh"]
+
+# DOCKER_BUILDKIT=1 docker build -f Dockerfile.serverless -t nadahlberg/tgi-runpod:latest --push .
 
 
